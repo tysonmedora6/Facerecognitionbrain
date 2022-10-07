@@ -87,11 +87,12 @@ loadUser = (data) => {
 }
 
 calculateFaceLocation = (data) => {
-const clarifaiFace = data.outputs[n].data.regions[n].region_info.bounding_box;
+for(n=0;n<5;n++){
+
+    const clarifaiFace = data.outputs[n].data.regions[n].region_info.bounding_box;
 const image = document.getElementById('inputimage');
 const width = Number(image.width);
 const height = Number(image.height);
-for(n=0;n<5;n++){
     return {
   leftCol: clarifaiFace.left_col * width,
   topRow: clarifaiFace.top_row * height,
